@@ -1,6 +1,18 @@
 1.정의
 
+검색에서 사용할 매칭되는 같은 문자들의 패턴
+
 2.메타문자
+
+. :newline을 제외한 오직 하나의 문자와 일치 예) egrep "G.U" gnu.txt
+? :?앞에 나오는 정규표현식이 하나의 문자와 매칭 할 때 사용 예) egrep "GNU?" gnu.txt
+* :앞에 문자열이나 정규표현식에서 0개 이상 반복되는 문자 예) egrep "Les*" gnu.txt
++ :자신 앞에 나오는 하나 이상의 정규표현식과 일치 예) egrep "read+" gnu.txt
+{N} :정확히 N번 일치 예) egrep "GNU{1}" gnu.txt
+{N,} :N번 또는 그 이상 일치 예) egrep "GNU{1,}" gnu.txt
+{N,M} :적어도 N번 일치하지만 M번 일치를 넘지 않는다. 예) egrep "GNU{1, 2}" gnu.txt
+- :목록엣 처음과 마지막을 제외한 범위 예) egrep "[1-9]" gnu.txt
+^ :라인의 시작에서의 공백문자 예) grep "^GNU" gnu.txt
 
 3.확장 브래킷
 

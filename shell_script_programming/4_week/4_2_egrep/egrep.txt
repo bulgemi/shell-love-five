@@ -15,3 +15,9 @@ $ :라인의 끝
 ? :바로 앞의 문자 하나가 없거나 하나가 매칭되는 문자
 a|b :a 또는 b와 매칭되는 문자(or)
 ( ) :문자 그룹
+
+
+3.차이점 예시
+
+grep -n "Sub|sub" gnu.txt
+grep -E "Sub|sub" gnu.txt

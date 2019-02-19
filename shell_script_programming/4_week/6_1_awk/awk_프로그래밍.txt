@@ -87,28 +87,77 @@ d.END
 
 7.액션
 
+컬리 브레이스({ })로 둘러싸인 문장이며 세미콜론(;)으로 구분
+형식: {action}
+
+
 8.변수
 
-a.사용자 정의
--문자
--숫자
+문자열, 숫자, 숫자와 문자 결한한 형식 존재
+변수를 설정하면 = 기호 우측 표현식의 타입으로 인식
+초기화하지 않으면 0 또는 공백문자(" ")
 
-b.내장변수
+a.사용자 정의
+-문자: name="Tom"
+-숫자: number=100
+-형변환: name="109"; name+0; number=100; number " "
+
+b.주요 빌트인 내장변수
+FNR :현재 파일의 전체 레코드 수
+FS :입력 필드 분리자, default: 공백(스페이스)
+NF :현재 레코드에서의 전체 필드 수
+NR :레코드 수
+OFMT :숫자 출력 포맷
+OFS :출력 필드 분리자
+ORS :출력 레코드 분리자
+RS :입력 레코드 분리자
+
 
 9.리다이렉션
 
 a.출력
+> 심볼이 사용될 때 파일이 오픈되고 잘려진다.
+예) awk '{ for ( i = 1; i <= NF; i++ ) { print NF, $i > "new_file" } }' awk_sample.dat
 
 b.입력
+getline 함수는 표준 입력, 파이프, 현재 처리되고 있는 파일로부터 입력을 읽기 위해 사용
+(리턴값: 검색[1}, EOF(End Of file)[0], 실패[-1])
+예) awk 'BEGIN{ "date" | getline d; print d }'
+
 
 10.함수
 
-a.내장 함수
+a.주요 내장 함수
+- sub: 정규표현식에 매칭되는 문자열을 찾아서 원하는 문자열로 치환
+       형식: sub (정규표현식, 치활할 문자열); or sub (정규표현식, 치환할 문자열, 타겟 문자열)
+       예) awk '{sub(/GNU/, "TEST"); print}' gnu.txt | head
+- gsub: 정규표현식에 매칭되는 문자열을 찾아서 원하는 문자열로 치환(group substitution)
+        형식: gsub (정규표현식, 치환할 문자열); or gsub (정규표현식, 치환할 문자열, 타겟 문자열)
+        예) awk '{gsub(/GNU/, "TEST"); print}' gnu.txt | head
+- index: 문자열에서 substring이 발견되는 첫 번째 위치
+         형식: index(string, substring)
+         예) awk 'BEGIN{ print index("hello", "lo") }'
+- length: 문자열에서 문자의 개수
+          형식: length(문자열) or length
+          예) awk 'BEGIN{ print length("hello") }'
+- substr: 주어진 문자열로부터 지정된 시작 위치의 앞까지 모두 자른 다음, 남아있는 문자열 리턴
+          형식: substr(문자열, 시작 위치) or substr(문자열, 시작 위치, 문자열 길이)
+          예) awk 'BEGIN{ print substr("hello", 2, 2) }'
 
 b.사용자 정의 함수
+패턴 액션 규칙을 넣을 수 있는 스크립트의 어떤 곳에도 추가할 수 있다.
+
+형식:
+함수이름 (파라미터, ...) {
+    문장
+    return 표현식
+}
+
 
 11.아규먼트
 
 a.ARGV
+명령라인 아규먼트(0부터 시작)
 
 b.ARGC
+명령라인 아규먼트 수

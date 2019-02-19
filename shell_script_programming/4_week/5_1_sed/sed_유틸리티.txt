@@ -1,8 +1,34 @@
 1.정의
 
-2.연산자
+비대화형 모드의 줄 단위 에디터
+표준 입력 또는 파일로부터 텍스트를 입력받아 주어진 라인들에 대해 한 번에 한 라인씩 처리 후 결과를 표준 출력이나 파일로 보낸다.
+(vi 에디터에서 사용 가능)
+
+
+2.주요 연산자
+
+[주소 범위]/d :delete, [주어진 주소 범위] 삭제
+s/patten1/patten2/ :substitute, patten1을 patten2로 치환
+[주소 범위]/s/patten1/patten2/ :substitute, 주소 범위에 대해서 patten1을 patten2로 치환
+g :global, 모든 라인 적용
+
 
 3.동작원리
 
-4.정규표현식
+한번에 하나의 파일 또는 하나의 입력으로부터 한 라인만 처리하고 모니터로 출력
+임시 버퍼에 저장된 각 라인을 처리하기 때문에 원래의 파일이 변경되거나 손상되지 않는다.
 
+
+4.사용 예시
+(-e 옵션을 사용하면 다음에 나오는 문자열을 편집 명령어로 해석한다.
+작은 따옴표('')는 sed 명령에서 정규표현식용 문자가 쉘에 의해 특수 문자로 재해석되는 것을 방지한다.
+-n 옵션을 사용하면 패턴이 일치하는 라인만 출력)
+
+cat gnu.txt |head
+sed '1d' gnu.txt |head (1번째 줄 삭제)
+sed -e '1d' gnu.txt |head (1번째 줄 삭제)
+sed -e '/^$/d' gnu.txt |head (빈줄 삭제)
+sed -e '1,/^$/d' gnu.txt |head (1번줄부터 첫 빈줄까지 삭제)
+sed -n '/The GNU/p' gnu.txt |head ('The GNU'를 포함한 줄만 출력)
+sed -e 's/The GNU/The Test/' gnu.txt |head ('The GNU'를 'The Test'로 치환)
+sed -e '1,2s/2007/2019/' gnu.txt |head (1번줄부터 2번줄까지 '2007'을 '2019'로 치환)

@@ -17,7 +17,7 @@
 $ :라인의 마지막 공백문자 예) egrep "read$" gnu.txt
 ^$ :빈줄 예) egrep "^$" gnu.txt
 [...] :대괄호는 단일 정규표현식에서 묶는다. 예) egrep "p[a-z]ease" gnu.txt
-\ :특수문자를 원래의 문자로 해석 예) egree "\<" gnu.txt
+\ :특수문자를 원래의 문자로 해석 예) egrep "\<" gnu.txt
 \< :단어 시작에서의 공백 문자열 예) grep "\<sho" gnu.txt
 \> :단어 끝에서의 공백 문자열 예) grep "ion\>" gnu.txt
 

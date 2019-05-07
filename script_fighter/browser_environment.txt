@@ -1,0 +1,27 @@
+window
+ |
+ `JavaScript -Object
+ |           |
+ |           `Array
+ |           |
+ |           `Function
+ |           |
+ |           `...
+ |
+ `DOM -Document
+ |    |
+ |    `
+ |    |
+ |    `...
+ |
+ `BOM -Navigator
+      |
+      `Screen
+      |
+      `Location
+      |
+      `Frames
+      |
+      `History
+      |
+      `XMLHttpRequest

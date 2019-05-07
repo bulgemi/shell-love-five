@@ -1,0 +1,15 @@
+1.Window 객체
+- 모든 객체가 소속된 객체
+- 전역객체
+
+예)
+    alert('Hello world');
+    window.alert('Hello world');
+
+    var a = 1;
+    alert(a);
+    alert(window.a);
+
+    var a = {id:1};
+    alert(a.id);
+    alert(window.a.id);

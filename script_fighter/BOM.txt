@@ -1,0 +1,50 @@
+2.BOM(Browser Object Model)
+- 웹브라우저의 창이나 프래임을 추상화해서 프로그래밍적으로 제어
+
+2.1.Location
+- 문서의 주소와 관련된 객체로 Window 객체의 프로퍼티
+- 주요 property: host(URL의 호스트네임과 포트번호를 설정하거나 반환),
+                hostname(도메인명),
+                href(전체 URL을 설정하거나 반환),
+                origin(URL의 프로토콜, 호스트네임, 포트번호 반환),
+                pathname(URL 경로),
+                port(80 외 사용하는 port),
+                protocol(웹 프로토콜 반환),
+                hash(특정 위치[anchor] 이동)
+                search()
+- 주요 method: reload(현 도큐먼트 새로고침),
+              replace(현 도큐먼트를 새 도큐먼트로 교체),
+              toString(문자열 변환),
+              assign(새 도큐먼트 로드)
+
+- http://opentutorials.org:80/module/1?id=1#hash
+  protocol
+         host
+                           port
+                             pathname
+                                      search
+예)
+  console.log(location);
+
+2.2.Navigator
+- 브라우저의 정보를 제공하는 객체
+- 주요 property: appName(웹브라우저의 이름),
+                appVersion(브라우저의 버전),
+                userAgent(USER-AGENT HTTP 헤더의 내용),
+                platform(브라우저가 동작하고 있는 운영체제)
+
+2.3.Frames
+- 현재 윈도우의 모든 <iframe> 요소를 나타내는 배열 모양의 객체를 반환
+예)
+  console.log(frames);
+
+2.4.History
+- 브라우저 히스토리에 접근, 사용자 히스토리에서의 앞 뒤 이동 가능
+- 주요 method: back(뒤로),
+              forward(앞으로),
+              go(-1[뒤로], 1[앞으로])
+
+2.5.XMLHttpRequest
+- 서버와 상호작용(통신)
+- AJAX
+- 참고(https://developer.mozilla.org/ko/docs/XMLHttpRequest)

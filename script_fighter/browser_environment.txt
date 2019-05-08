@@ -1,27 +1,31 @@
-window
+window: 모든 객체가 소속된 객체
  |
- `JavaScript -Object
- |           |
- |           `Array
- |           |
- |           `Function
- |           |
- |           `...
+ `JavaScript
+ |         |
+ |         `Object
+ |         |
+ |         `Array
+ |         |
+ |         `Function
+ |         |
+ |         `...
  |
- `DOM -Document
- |    |
- |    `
- |    |
- |    `...
+ `DOM(Document Object Model): 웹페이지를 자바스크립트로 제어하기 위한 객체 모델
+ |  |
+ |  `Document
+ |  |
+ |  `...
  |
- `BOM -Navigator
-      |
-      `Screen
-      |
-      `Location
-      |
-      `Frames
-      |
-      `History
-      |
-      `XMLHttpRequest
+ `BOM(Browser Object Model): 웹브라우저 window/frame 제어
+    |
+    `Navigator
+    |
+    `Screen
+    |
+    `Location
+    |
+    `Frames
+    |
+    `History
+    |
+    `XMLHttpRequest

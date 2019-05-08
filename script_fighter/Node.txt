@@ -1,3 +1,84 @@
 0.Node
 - DOM에서 시조와 같은 역할
 - 모든 DOM 객체는 Node 객체를 상속
+
+
+0.1.주요기능
+- 관계: 각각의 Node가 다른 Node와 연결된 정보 보여주는 API 제공
+    Node.childNodes  // 자식노드들을 유사배열에 담아서 리턴한다.
+    Node.firstChild  // 첫번째 자식노드
+    Node.lastChild  // 마지막 자식노드
+    Node.nextSibling  // 다음 형제 노드
+    Node.previousSibling  // 이전 형제 노드
+    Node.contains()
+    Node.hasChildNodes()
+
+    예)
+    var s = document.getElementById('start');
+    console.log(1, s.firstChild); // #text
+    var ul = s.firstChild.nextSibling
+    console.log(2, ul); // ul
+    console.log(3, ul.nextSibling); // #text
+    console.log(4, ul.nextSibling.nextSibling); // script
+    console.log(5, ul.childNodes); //text, li, text, li, text, li, text
+    console.log(6, ul.childNodes[1]); // li(html)
+    console.log(7, ul.parentNode); // body
+
+- 노드의 종류: 각각의 구성요소가 어떤 카테고리에 속하는 것인지를 알려주는 식별자 제공
+    Node.nodeType  // node의 타입 의미
+    Node.nodeName  // node의 이름 (태그명을 의미)
+
+- 값: Node 객체의 값을 제공하는 API
+    Node.nodeValue
+    Node.textContent
+
+- 자식관리: Node 객체의 자식을 추가하는 방법에 대한 API
+    Node.appendChild()  // 노드의 마지막 자식으로 주어진 엘리먼트 추가
+    Node.insertBefore(newElement, referenceElement)  // appendChild와 동작방법은 같으나 두번째 인자로 엘리먼트를 전달 했을 때 이것 앞에 엘리먼트가 추가
+    예)
+    var target = document.getElementById('target');
+    var li = document.createElement('li');
+    var text = document.createTextNode('jQuery');
+
+    li.appendChild(text);
+    target.insertBefore(li, target.firstChild);
+
+    Node.removeChild()  // 노드 제거
+    예)
+    var target = document.getElementById('target');
+    target.parentNode.removeChild(target);
+
+    Node.replaceChild(newChild, oldChild)  // 노드 바꾸기
+    예)
+    var a = document.createElement('a');
+    a.setAttribute('href', 'http://opentutorials.org/module/904/6701');
+    a.appendChild(document.createTextNode('Web browser JavaScript'));
+
+    var target = document.getElementById('target');
+    target.replaceChild(a,target.firstChild);
+
+
+0.2.문자열로 노드 제어
+- innerHTML: 문자열로 자식 노드를 만들 수 있는 기능을 제공
+  예)
+  var target = document.getElementById('target');
+  console.log(target.innerHTML);
+  target.innerHTML = "<li>JavaScript Core</li><li>BOM</li><li>DOM</li>";
+
+- outerHTML: 선택한 엘리먼트를 포함해서 처리
+  예)
+  var target = document.getElementById('target');
+  console.log(target.outerHTML);
+  target.outerHTML = "<ol><li>JavaScript Core</li><li>BOM</li><li>DOM</li></ol>";
+
+- innerText, outerText: HTML 코드를 제외한 문자열을 리턴하고, 값을 변경할 때는 HTML의 코드를 그대로 추가
+  예)
+  var target = document.getElementById('target');
+  alert(target.innerText);
+  target.innerText = "<li>JavaScript Core</li><li>BOM</li><li>DOM</li>";
+
+- insertAdjacentHTML(): 문자열을 이용해서 노드를 변경
+  예)
+  var target = document.getElementById('target');
+  target.insertAdjacentHTML('beforebegin','<h1>Client Side</h1>');
+

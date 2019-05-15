@@ -1,7 +1,8 @@
 3.DOM(Document Object Model)
 - 웹페이지를 자바스크립트로 제어
 
-3.0.DOM Tree(https://web.stanford.edu/class/cs98si/slides/the-document-object-model.html)
+3.0.DOM Tree(상속관계, https://web.stanford.edu/class/cs98si/slides/the-document-object-model.html)
+
 Node
 |-- Attr
 |-- CharacterData
@@ -17,7 +18,7 @@ Node
         |-- HTMLParagraphElement
         |-- HTMLTableElement
         |-- HTMLTitleElement
-        `-- etc
+        `-- etc ...
 
 3.1.document
 - 주요 method: getElementsByTagName(인자로 전달된 태그명에 해당하는 객체들을 찾아서 반환),
@@ -40,26 +41,62 @@ Node
   console.log(document.getElementsByTagName('li').constructor.name);
 
 3.2.Element 객체
+- 엘리먼트를 추상화한 객체
+- 마크업 언어의 일반적인 규격에 대한 속성을 정의
+- 식별자: 문서내에서 특정한 엘리먼트를 식별하기 위한 용도로 사용되는 API
+    Element.classList  // className에 비해서 훨씬 편리한 사용성을 제공
+    예) var active = document.getElementById('active');
+
+        for(var i=0; i<active.classList.length; i++){
+            console.log(i, active.classList[i]);
+        }
+
+    Element.className  // 여러개의 엘리먼트를 그룹핑할 때 사용
+    예) document.getElementById('active').className = "important current";
+
+    Element.id  // id는 단 하나만 등장할 수 있는 식별자
+    예) console.log(document.getElementById('active').id);
+
+    Element.tagName  // 해당 엘리먼트의 태그 이름을 알아낸다. 태그 이름을 변경하지는 못한다.
+    예) console.log(document.getElementById('active').tagName);
+
+- 조회: 엘리먼트의 하위 엘리먼트를 조회하는 API
+    Element.getElementsByClassName
+    Element.getElementsByTagName
+    Element.querySelector
+    Element.querySelectorAll
+
+- 속성: 엘리먼트의 속성을 알아내고 변경하는 API
+    Element.getAttribute(name);  // 속성값 조회
+    예) var t = document.getElementById('target');
+        console.log(t.getAttribute('href'));
+
+    Element.setAttribute(name, value);  //  속성의 값을 설정
+    예) t.setAttribute('title', 'opentutorials.org');
+
+    Element.hasAttribute(name);  // 속성의 존재여부를 확인
+    예) console.log(t.hasAttribute('title'));
+
+    Element.removeAttribute(name);  // 속성 제거
+    예) t.removeAttribute('title');
+
 
 3.3.HTMLElement
+- Element 상속
 - 모든 HTML 엘리먼트
 - 참고(https://developer.mozilla.org/ko/docs/Web/API/HTMLElement)
 
-3.4.HTMLAnchorElement
+3.3.1.HTMLAnchorElement
+- HTMLElement 상속
 - 하이퍼 링크 요소
 - 참고(https://developer.mozilla.org/ko/docs/Web/API/HTMLAnchorElement)
 
-3.5.HTMLInputElement
+3.3.2.HTMLInputElement
+- HTMLElement 상속
 - <input> 요소
 - 참고(https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement)
 
-3.6.HTMLCollection
+3.4.HTMLCollection
 - 리턴 결과가 복수인 경우에 사용하게 되는 객체
+- 유사배열(이터러블한 객체)
 - 참고(https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)
-
-3.7.jQuery
-- 자주 사용하는 로직을 재사용할 수 있도록 고안된 소프트웨어를 라이브러리
-- 기본 문법: $('li').css('color', 'red');  // li 태그에 style에 color를 red로 변경
-            선택자   매소드
-
-3.8.jQuery 객체

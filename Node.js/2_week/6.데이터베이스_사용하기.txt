@@ -11,7 +11,7 @@
     - 문서 삭제: % db.users.remove({name:/소녀/}) --> regexp 표현식 사용 가능
 
 06-2. 익스프레스에서 몽고디비 사용하기
-* package.json: npm init 실행하여 생성, dependencies 정보(모듈 이름, 버전), node_modules 아래 저장
+* package.json: npm init 실행하여 생성, dependencies 정보(모듈 이름, 버전), node_modules 아래 저장(npm install 수행시 package.json에 정의된 모듈 설치, npm upgrade 수행시 모듈 버전 upgrade)
 - express 모듈: 익스프레스 기본 모듈(% npm install express --save)
 - http 모듈: 웹 서버 모듈(% npm install http --save)
 - path 모듈: 패스 문자열(% npm install path --save)
@@ -155,4 +155,5 @@
         callback(null, result);
     });
 
+* 시연: app3.js(mongoose, http://127.0.0.1:3000/public/adduser.html), app5.js(암호화, http://127.0.0.1:3000/public/adduser.html)
 "끝"

@@ -6,7 +6,7 @@
   - 모델: 데이터베이스에 데이터를 저장하거나 조회하는 함수
   - 뷰: 사용자에게 결과를 보여 주기 위해 만든 파일
 - 뷰 템플릿을 사용해 결과 웹 문서를 자동으로 생성한 후 응답을 보내는 역할을 하는 것이 뷰 엔진
-- 익스프레스에서는 ejs(Embedded Javascript templates), pug 등 여러 가지 뷰 엔진을 지원
+- 익스프레스에서는 ejs(Embedded JavaScript templates), pug 등 여러 가지 뷰 엔진을 지원
   - ejs 설치: % npm install ejs --save
 - 뷰 엔진 설정
   app.set('views', __dirname + '/views');

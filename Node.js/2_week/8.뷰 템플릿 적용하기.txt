@@ -1,0 +1,49 @@
+- 유지관리를 할 때는 자바스크립트 코드 안에 응답 문자열을 입력하는 것보다 응답 웹 문서를 별도 파일로 만들어 사용하는 것이 좋음
+- 응답 웹 문서의 모양을 미리 만들어 둔 것을 템플릿(Template)이라고 함.
+08-1.ejs 뷰 템플릿 사용하기
+- MVC 패턴(Model-View-Controller)
+  - 컨트롤러: 사용자 요청을 처리하는 라우팅 함수
+  - 모델: 데이터베이스에 데이터를 저장하거나 조회하는 함수
+  - 뷰: 사용자에게 결과를 보여 주기 위해 만든 파일
+- 뷰 템플릿을 사용해 결과 웹 문서를 자동으로 생성한 후 응답을 보내는 역할을 하는 것이 뷰 엔진
+- 익스프레스에서는 ejs(Embedded Javascript templates), pug 등 여러 가지 뷰 엔진을 지원
+  - ejs 설치: % npm install ejs --save
+- 뷰 엔진 설정
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'ejs');
+- login_sucdess.ejs
+  ...
+  <div><p>사용자 아이디: <%= userid %></p></div>
+  ...
+  - <%와 %> 기호가 들어 있는데 이 기호는 자바스크립트 코드를 넣어 주는 기호
+  - <% 기호에 =이 붙으면 변수를 넣을 수 있음
+- user.js
+  ...
+  req.app.render('login_success', context, funciton(err, html) {
+    ...
+    res.end(html);
+  });
+- 엑스프레스 서버 객체인 app에는 render()메서드 들어 있음.
+
+08-2.pug 뷰 템플릿 사용하기
+- pug 포맷을 사용하면 HTML 태그를 사용하는 것보다 훨씬 적은 내용을 입력해도 웹 문서 생성 가능
+- URL: http://pugjs.org
+- 뷰 엔진 설정
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'pug')
+- pug는 공백을 두 개 사용하여 들여쓰기
+- 웹 서버에 적용하기 전에 여러분이 입력한 템플릿이 잘 만들어졌는지 확인하고 싶다면 명령 프롬프트에서 pug명령을 사용해 결과 HTML 문서 변환 확인 가능
+- pug 템플릿 파일 안에서 자바스크립트 코드를 사용하려면 코드 줄의 가장 앞에 - 기호를 붙여 줌
+  - listuser.pug
+    doctype html
+    html
+      head
+        ...
+      body
+        h1 사용자 리스트 페이지
+          ul
+            - for (var i = 0; i < results.length; i++) {
+              - var curId = results[i]._doc.id;
+              - var curName = results[i]._doc.name;
+            - }
+"끝"

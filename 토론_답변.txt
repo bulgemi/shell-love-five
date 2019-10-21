@@ -1,0 +1,8 @@
+Montecito: A dual-core, Dual-thread Itanium Processor
+
+그림 5를 보면 L3캐시가 보이는데요. Itanium CPU는 L1, L2, L3 캐시를 지원되는 것 같은데 L3 캐시의 역할에 대해 문의 드려도 될까요?
+
+Cheap Concurrency in C
+
+1985년도부터 32비트 프로세서가 나오기 시작한 시기네요. 이 시기부터 컴퓨팅 기술이 빠르게 발전하고 멀티태스킹이 그나마 가능하게 된 것 같은데요.
+이 시기부터 Concurrency에 대한 초기 연구가 시작되어 논문 내용이 빈약한 것은 아닐까요?

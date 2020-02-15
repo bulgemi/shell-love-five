@@ -17,3 +17,6 @@
     * [표준 모듈](https://github.com/bulgemi/shell-love-five/blob/master/%ED%8C%8C%EC%9D%B4%EA%B3%B5%EB%B0%A9/4%EC%A3%BC%EC%B0%A8/1_%ED%91%9C%EC%A4%80_%EB%AA%A8%EB%93%88.md)
     * [파일 입출력](https://github.com/bulgemi/shell-love-five/blob/master/%ED%8C%8C%EC%9D%B4%EA%B3%B5%EB%B0%A9/4%EC%A3%BC%EC%B0%A8/2_%ED%8C%8C%EC%9D%BC_%EC%9E%85%EC%B6%9C%EB%A0%A5.md)
     * [예외 처리](https://github.com/bulgemi/shell-love-five/blob/master/%ED%8C%8C%EC%9D%B4%EA%B3%B5%EB%B0%A9/4%EC%A3%BC%EC%B0%A8/3_%EC%98%88%EC%99%B8_%EC%B2%98%EB%A6%AC.md)
+## Reference
+* 창의적 사고를 위한 Python 프로그래밍 정복하기(강남오.김재호 지음, 북스홀릭)
+* 처음 시작하는 파이썬(빌 루바노빅 지음/최길우 옮김, 한빛미디어)

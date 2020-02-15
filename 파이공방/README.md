@@ -1,5 +1,5 @@
-# 계획 
-* [계획](https://github.com/bulgemi/shell-love-five/blob/master/%ED%8C%8C%EC%9D%B4%EA%B3%B5%EB%B0%A9/%EA%B3%84%ED%9A%8D.md)
+# 소개 
+* [개요 및 일정](https://github.com/bulgemi/shell-love-five/blob/master/%ED%8C%8C%EC%9D%B4%EA%B3%B5%EB%B0%A9/%EA%B3%84%ED%9A%8D.md)
 # Table of Contents
 * 1주차
     * [파이썬 프로그래밍 소개](https://github.com/bulgemi/shell-love-five/blob/master/%ED%8C%8C%EC%9D%B4%EA%B3%B5%EB%B0%A9/1%EC%A3%BC%EC%B0%A8/1_%ED%8C%8C%EC%9D%B4%EC%8D%AC%20_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EC%86%8C%EA%B0%9C.md)
